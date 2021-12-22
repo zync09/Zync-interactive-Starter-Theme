@@ -91,16 +91,16 @@ class ZyncStarter extends Site
         //wp_dequeue_script('jquery');
         // wp_enqueue_script( 'jquery', '', [], false, true );
 
-        $manifestFile = file_get_contents(__DIR__ . '/mix-manifest.json');
+        $manifestFile = file_get_contents(__DIR__ . '/dist/mix-manifest.json');
         $manifest = json_decode($manifestFile, true);
 
-        $fileJS = $manifest['/dist/app.js'];
-        $fileCSS = $manifest['/dist/app.css'];
-        $fileCSS = $manifest['/dist/tailwind.css'];
+        $fileJS = $manifest['/app.js'];
+        $fileCSS = $manifest['/app.css'];
+        $fileTailwind = $manifest['/tailwind.css'];
 
-        wp_enqueue_script('app', get_template_directory_uri() . $fileJS, null, null, true);
-        wp_enqueue_style('style', get_template_directory_uri() . $fileCSS, null, null );
-        wp_enqueue_style('style', get_template_directory_uri() . $fileCSS, null, null );
+        wp_enqueue_script('app', get_template_directory_uri() . '/dist'. $fileJS, null, null, true);
+        wp_enqueue_style('style', get_template_directory_uri() . '/dist'. $fileCSS, null, null );
+        wp_enqueue_style('tailwind', get_template_directory_uri() . '/dist'. $fileTailwind, null, null );
     }
 
     public function use_block_editor_for_post_type($is_enabled, $post_type)
