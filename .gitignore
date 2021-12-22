@@ -17,6 +17,12 @@ wp-content/themes/twenty*/
 # ignore node dependency directories
 node_modules/
 
+# ignore composer modules, install them after theme clone
+vendor/
+
+# ignore dist folder
+dist/
+
 # ignore log files and databases
 *.log
 *.sql
