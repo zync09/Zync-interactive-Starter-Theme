@@ -16,11 +16,13 @@
     
     <body class="relative overflow-x-hidden overflow-y-auto scroll-smooth" data-barba="wrapper">
         <!-- put here content that will not change between your pages, like <header> or <nav> -->
+        {% include "components/header.twig" %}
 
         <main data-barba="container" data-barba-namespace="{{post.post_name}}">
             {% block content %} {% endblock %}
         </main>
         
+        {% include "components/footer.twig" %}
         <!-- put here content that will not change between your pages, like <footer> -->
         {{wp_footer}}
     </body>

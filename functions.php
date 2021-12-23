@@ -9,7 +9,7 @@ use Timber\Menu;
 use Timber\Site;
 use Timber\Timber;
 
-Timber::$dirname = array('views', 'components');
+Timber::$dirname = array('components', 'views');
 
 /**
  * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
@@ -121,3 +121,21 @@ class ZyncStarter extends Site
 }
 
 new ZyncStarter();
+
+Routes::map('alpha', function($params){
+    $post = [
+        'post_name' => 'alpha',
+        'post_title' => 'Alpha',
+        'post_content' => '<h1>Alpha</h1>'
+    ];
+    Routes::load('page-alpha.php', null, $post);
+});
+
+Routes::map('omega', function($params){
+    $post = [
+        'post_name' => 'omega',
+        'post_title' => 'Omega',
+        'post_content' => '<h1>Omega</h1>'
+    ];
+    Routes::load('page-omega.php', null, $post);
+});
